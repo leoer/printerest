@@ -1,7 +1,8 @@
 import os
 import psycopg2
+import time
 import json
-from flask import Flask, send_file, render_template, request
+from flask import Flask, send_file, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -17,7 +18,8 @@ create_chosen_images = (
 	'CREATE TABLE IF NOT EXISTS chosen_images '
 	'('
 	'  id SERIAL PRIMARY KEY,'
-	'  images TEXT NOT NULL'
+	'  images TEXT NOT NULL,'
+	'  timestamp bigint NOT NULL'
 	')'
 )
 with conn, conn.cursor() as cur:
@@ -44,11 +46,24 @@ def main():
 
 @app.route('/thank-you', methods=["GET", "POST"])
 def thank_you():
+	# TODO: Prevent double submissions (set cookie?)
 	formdata = request.form
 	if "selected_list" in formdata:
-		print(formdata["selected_list"])
+		selected_list = formdata["selected_list"]
+		with conn, conn.cursor() as cur:
+			cur.execute("INSERT INTO chosen_images (images, timestamp) VALUES (%s, %s	)", (selected_list, int(time.time()*1000)))
 	return render_template("thank-you.html")
 
+@app.route('/api')
+def printer_api():
+	if not "timestamp" in request.args:
+		return ""
+	timestamp = int(request.args["timestamp"])
+	with conn, conn.cursor() as cur:
+		cur.execute("SELECT * FROM chosen_images WHERE timestamp >= %s", (timestamp,))
+		existing = cur.fetchall()
+	existing = [[id, json.loads(images), timestamp] for id, images, timestamp in existing]
+	return jsonify(existing)
 
 if __name__ == "__main__":
 	# Start Server

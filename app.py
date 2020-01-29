@@ -2,7 +2,7 @@ import os
 import psycopg2
 import time
 import json
-from flask import Flask, send_file, render_template, request, jsonify
+from flask import Flask, send_file, render_template, request, jsonify, make_response
 
 app = Flask(__name__)
 
@@ -48,11 +48,13 @@ def main():
 def thank_you():
 	# TODO: Prevent double submissions (set cookie?)
 	formdata = request.form
-	if "selected_list" in formdata:
+	if "selected_list" in formdata and request.cookies.get('printerest_submitted') is None:
 		selected_list = formdata["selected_list"]
 		with conn, conn.cursor() as cur:
 			cur.execute("INSERT INTO chosen_images (images, timestamp) VALUES (%s, %s	)", (selected_list, int(time.time()*1000)))
-	return render_template("thank-you.html")
+	resp = make_response(render_template("thank-you.html"))
+	resp.set_cookie('printerest_submitted','True')
+	return resp
 
 @app.route('/api')
 def printer_api():

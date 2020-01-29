@@ -5,15 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" media="all">
         <link rel="stylesheet" href="/static/style.css" />
+        <script type="text/javascript" src="/static/script.js"></script>
         <title>TITLE</title>
     </head>
     <body>
-        {% for category in images.keys() %}
-            <ul>
-                {% for image in images[category] %}
-                    <li><img src="/static/images/{{ category + '/' + image }}"></li>
-                {% endfor %}
-            </ul>
-        {% endfor %}
+        <div id="gallery">
+            {% for category in images.keys() %}
+                <ul id="{{ category }}">
+                    {% for image in images[category] %}
+                        <li id="{{ category + '_' + image.rsplit('.',1)[0].lower() }}"><img src="/static/images/{{ category + '/' + image }}"></li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
     </body>
 </html>

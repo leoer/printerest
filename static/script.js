@@ -77,6 +77,14 @@ function store (key, value) {
     return window.localStorage.setItem(key, value);
 }
 
+function create_indicator(n) {
+    let indicator = document.createElement("div");
+    indicator.textContent = n.toString();
+    indicator.id = "progress-indicator-"+n.toString();
+    indicator.classList.add("indicator");
+    return indicator;
+}
+
 // execute the following code only after the page has loaded
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -97,5 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // determine button status
     if (selectedList.length > 0) {
         nextButton.classList.remove("disabled");
+    }
+
+    // add progress indicators
+    let progress_bar = document.querySelector("#progress");
+    for (let i = 0; i < MAX_SELECTED; i++) {
+        progress_bar.appendChild(create_indicator(i+1));
     }
 });

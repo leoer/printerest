@@ -60,7 +60,7 @@ def printer_api():
 		return ""
 	timestamp = int(request.args["timestamp"])
 	with conn, conn.cursor() as cur:
-		cur.execute("SELECT * FROM chosen_images WHERE timestamp >= %s", (timestamp,))
+		cur.execute("SELECT * FROM chosen_images WHERE timestamp > %s", (timestamp,))
 		existing = cur.fetchall()
 	existing = [[id, json.loads(images), timestamp] for id, images, timestamp in existing]
 	return jsonify(existing)

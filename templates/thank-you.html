@@ -11,18 +11,7 @@
         <title>TITLE</title>
     </head>
     <body>
-        <div id="gallery">
-            {% for category in images.keys() %}
-                <ul id="{{ category }}">
-                    {% for image in images[category] %}
-                        <li id="{{ category + '_' + image.rsplit('.',1)[0].lower() }}"><img src="/static/images/{{ category + '/' + image }}"></li>
-                    {% endfor %}
-                </ul>
-            {% endfor %}
-        </div>
-        <div id="nextButton" class="next-button disabled">
-            <i class="fas fa-chevron-right"></i>
-        </div>
-        <div id="hiddenForm"></div>
+        <h1>Danke für deine Teilnahme!</h1>
+        <p>Gestalte deine Stadt mit! Wir benachrichtigen dich, wenn deine Meinung erneut gefragt ist!</p>
     </body>
 </html>

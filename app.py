@@ -46,14 +46,15 @@ def main():
 
 @app.route('/thank-you', methods=["GET", "POST"])
 def thank_you():
-	# TODO: Prevent double submissions (set cookie?)
+	already_submitted = not (request.cookies.get('printerest_submitted') is None)
+	resp = make_response(render_template("thank-you.html", already_submitted=already_submitted))
+
 	formdata = request.form
-	if "selected_list" in formdata and request.cookies.get('printerest_submitted') is None:
+	if "selected_list" in formdata and not already_submitted:
 		selected_list = formdata["selected_list"]
 		with conn, conn.cursor() as cur:
 			cur.execute("INSERT INTO chosen_images (images, timestamp) VALUES (%s, %s	)", (selected_list, int(time.time()*1000)))
-	resp = make_response(render_template("thank-you.html"))
-	resp.set_cookie('printerest_submitted','True')
+		resp.set_cookie('printerest_submitted','True')
 	return resp
 
 @app.route('/api')

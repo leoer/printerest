@@ -1,0 +1,26 @@
+body {
+    background: grey;
+}
+
+#gallery ul {
+    list-style: none;
+}
+
+#gallery li {
+    display: inline-block;
+}
+
+#gallery img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent;
+    cursor: pointer;
+}
+
+#gallery img.selected {
+    border-color: yellow;
+}

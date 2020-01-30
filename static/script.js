@@ -112,4 +112,11 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < MAX_SELECTED; i++) {
         progress_bar.appendChild(create_indicator(i+1));
     }
+
+    // initialize modals
+    MicroModal.init({
+        disableScroll: true,
+        awaitOpenAnimation: true,
+        awaitCloseAnimation: true
+    });
 });

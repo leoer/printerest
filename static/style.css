@@ -56,7 +56,7 @@ body {
 
 #gallery img {
     border-radius: 50%;
-    border-width: 10px;
+    border-width: 1vw;
     border-style: solid;
     border-color: transparent;
     cursor: pointer;

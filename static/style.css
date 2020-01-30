@@ -2,10 +2,15 @@ body {
     background: grey;
     padding: 0;
     margin: 0;
+    font-family: "Open Sans", sans-serif;
 }
 
 #gallery {
-    padding: 5px;
+    position: absolute;
+    top: 45px;
+    height: calc(100vh - 45px);
+    overflow: scroll;
+    padding: 5px 0 5px 5px;
 }
 
 #gallery ul {
@@ -14,7 +19,27 @@ body {
     padding: 0;
 }
 
-#gallery li {
+#gallery ul .category-title {
+    position: sticky;
+    top: 0;
+    float: right;
+    width: 20px;
+    z-index: 10;
+    /* like dimensions for images but without the subtracted padding */
+    height: calc(calc(100vw - 40px) / 2);
+    /* same padding-top as images */
+    padding: 10px 2.5px 0;
+
+    color: yellow;
+    font-size: 20px;
+}
+
+#gallery ul .category-title span {
+    display: block;
+    transform: rotate(90deg);
+}
+
+#gallery ul li {
     display: inline-block;
 }
 
@@ -66,7 +91,7 @@ li .aspect-ratio-box {
     text-align: center;
 
     position: fixed;
-    right: 50px;
+    right: 25px;
     bottom: 50px;
 
     transition: all 0.1s ease-in-out;
@@ -121,4 +146,13 @@ li .aspect-ratio-box {
     align-items: center;
     color: yellow;
     font-size: 20px;
+}
+
+#scroll {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 25px;
+    background: black;
 }

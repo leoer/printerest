@@ -2,7 +2,7 @@ const MAX_SELECTED = 4;
 
 function select_image (e) {
     let selectedList = load("selectedList", []);
-    let element = e.currentTarget;
+    let element = e.currentTarget.parentElement.parentElement;
     let nextButton = document.querySelector("#nextButton");
 
     // if element is already selected
@@ -89,7 +89,7 @@ function create_indicator(n) {
 document.addEventListener("DOMContentLoaded", () => {
 
     // make images selectable
-    document.querySelectorAll("#gallery li").forEach(e => {
+    document.querySelectorAll("#gallery .main-image").forEach(e => {
         e.onclick = select_image;
     });
 

@@ -19,6 +19,9 @@ function select_image (e) {
 
         // toggle modal button text to select
         document.querySelector("#modal-"+element.id+" .modal__btn-primary").textContent = "Select";
+
+        // update progress indicator
+        update_progress(selectedList.length, -1);
     } else {
         if (selectedList.length < MAX_SELECTED) {
             // select it
@@ -33,6 +36,9 @@ function select_image (e) {
 
             // toggle modal button text to deselect
             document.querySelector("#modal-"+element.id+" .modal__btn-primary").textContent = "Deselect";
+
+            // update progress indicator
+            update_progress(selectedList.length, 1);
         } else {
             MicroModal.show('modal-tms-error');
         }
@@ -85,10 +91,22 @@ function store (key, value) {
 
 function create_indicator(n) {
     let indicator = document.createElement("div");
-    indicator.textContent = n.toString();
     indicator.id = "progress-indicator-"+n.toString();
     indicator.classList.add("indicator");
+    let span = document.createElement("span");
+    span.textContent = n.toString();
+    indicator.appendChild(span);
     return indicator;
+}
+
+function update_progress(n, o) {
+    let old = n-o;
+    if (old !== 0) {
+        document.querySelector("#progress-indicator-"+old).classList.remove("active");
+    }
+    if (n !== 0) {
+        document.querySelector("#progress-indicator-"+n).classList.add("active");
+    }
 }
 
 // execute the following code only after the page has loaded
@@ -120,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < MAX_SELECTED; i++) {
         progress_bar.appendChild(create_indicator(i+1));
     }
+    update_progress(selectedList.length, 0);
 
     // initialize modals
     MicroModal.init({

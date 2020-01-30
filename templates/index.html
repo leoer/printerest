@@ -21,7 +21,10 @@
                     {% for image in images[category] %}
                         <li id="{{ category + '_' + image.rsplit('.',1)[0].lower() }}">
                             <div class="aspect-ratio-box">
-                                <img src="/static/images/{{ category + '/' + image }}">
+                                <img class="main-image" src="/static/images/{{ category + '/' + image }}">
+                                <div class="info-button-container">
+                                    <i class="fas fa-info-circle info-button"></i>
+                                </div>
                             </div>
                         </li>
                     {% endfor %}

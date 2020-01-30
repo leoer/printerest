@@ -54,7 +54,7 @@ body {
     display: inline-block;
 }
 
-#gallery img {
+#gallery .main-image {
     border-radius: 50%;
     border-width: 1vw;
     border-style: solid;
@@ -63,7 +63,7 @@ body {
     box-sizing: border-box;
 }
 
-#gallery .selected img {
+#gallery .selected .main-image {
     border-color: yellow;
 }
 
@@ -78,7 +78,7 @@ li .aspect-ratio-box {
     padding-top: 100%;
 }
 
-.aspect-ratio-box img {
+.aspect-ratio-box .main-image {
     position: absolute;
     left: 0;
     top: 0;
@@ -87,6 +87,34 @@ li .aspect-ratio-box {
     object-fit: cover;
 }
 
+.info-button-container {
+    /* styling */
+    color: white;
+    background: black;
+    opacity: 0.75;
+
+    /* hacks to make the styling work */
+    border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+    font-size: 11vw;
+    margin: 1vw;
+    line-height: 0;
+
+    position: absolute;
+    bottom: 3vw;
+    right: 3vw;
+}
+
+.info-button-container:active,
+.info-button-container:hover {
+    opacity: 1;
+}
+
+.info-button {
+    /* margin hacks to place parent container well inside of the visible part of the icon */
+    margin: -0.5vw;
+}
 
 .next-button {
     padding-left: 5px;

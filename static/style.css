@@ -8,9 +8,20 @@ body {
 #gallery {
     position: absolute;
     top: 45px;
-    height: calc(100vh - 45px);
-    overflow: scroll;
     padding: 5px 0 5px 5px;
+    /* 45px offset from top + 5px top and bottom each*/
+    height: calc(100vh - 55px);
+    overflow: auto;
+    /* hide scrollbars in IE */
+    -ms-overflow-style: none;
+    /* hide scrollbars in Firefox */
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+}
+
+/* hide scrollbars in Chrome, Safari, Opera */
+#gallery::-webkit-scrollbar {
+    display: none;
 }
 
 #gallery ul {

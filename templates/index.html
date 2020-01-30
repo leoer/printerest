@@ -21,7 +21,7 @@
                 <ul id="{{ category }}">
                     <div class="category-title"><span>{{ category.replace("ae","ä").replace("oe","ö").replace("ue","ü").capitalize() }}</span></div>
                     {% for image in images[category] %}
-                        {% set img_id = category + '_' + image.rsplit('.',1)[0].lower() %}
+                        {% set img_id = category + '_' + image.rsplit('.',1)[0].lower().replace(" ","_") %}
                         {% set img_url = '/static/images/' + category + '/' + image %}
                         <li id="{{ img_id }}">
                             <div class="aspect-ratio-box">
@@ -45,7 +45,7 @@
         <!-- modals with the information for each image -->
         {% for category in images.keys() %}
             {% for image in images[category] %}
-                {% set img_id = category + '_' + image.rsplit('.',1)[0].lower() %}
+                {% set img_id = category + '_' + image.rsplit('.',1)[0].lower().replace(" ","_") %}
                 {% set img_url = '/static/images/' + category + '/' + image %}
                 <div class="modal micromodal-slide" id="modal-{{ img_id }}" aria-hidden="true">
                     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
@@ -61,7 +61,8 @@
                             Foo
                         </main>
                         <footer class="modal__footer">
-                            <button class="modal__btn modal__btn-primary">Continue</button>
+                            <button class="modal__btn modal__btn-primary"
+                                    onclick="MicroModal.close('modal-{{ img_id }}'); document.querySelector('#{{ img_id }} .main-image').click()">Select</button>
                             <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
                         </footer>
                         </div>
@@ -75,17 +76,16 @@
                 <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-tms-error-title" >
                     <header class="modal__header">
                         <h2 class="modal__title" id="modal-tms-error-title">
-                          Error
+                          Too Many Images Selected
                         </h2>
                         <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
                     </header>
-                <main class="modal__content" id="modal-tms-error-content">
-                    Foo
-                </main>
-                <footer class="modal__footer">
-                    <button class="modal__btn modal__btn-primary">Continue</button>
-                    <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
-                </footer>
+                    <main class="modal__content" id="modal-tms-error-content">
+                        You have already selected 4 Images, if you want to select a different image please deselect one of the currently selected ones (simply tap on it again).
+                    </main>
+                    <footer class="modal__footer">
+                        <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+                    </footer>
                 </div>
             </div>
         </div>

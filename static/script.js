@@ -16,6 +16,9 @@ function select_image (e) {
         if (selectedList.length < 1) {
             nextButton.classList.add("disabled");
         }
+
+        // toggle modal button text to select
+        document.querySelector("#modal-"+element.id+" .modal__btn-primary").textContent = "Select";
     } else {
         if (selectedList.length < MAX_SELECTED) {
             // select it
@@ -27,8 +30,11 @@ function select_image (e) {
             if (nextButton.classList.contains("disabled")) {
                 nextButton.classList.remove("disabled");
             }
+
+            // toggle modal button text to deselect
+            document.querySelector("#modal-"+element.id+" .modal__btn-primary").textContent = "Deselect";
         } else {
-            alert("Too many selected"); //TODO
+            MicroModal.show('modal-tms-error');
         }
     }
 
@@ -100,6 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedList = load("selectedList",[]);
     for (img_id of selectedList) {
         document.getElementById(img_id).classList.add("selected");
+        // toggle modal button text to deselect
+        document.querySelector("#modal-"+img_id+" .modal__btn-primary").textContent = "Deselect";
     }
 
     // determine button status
@@ -117,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     MicroModal.init({
         disableScroll: true,
         awaitOpenAnimation: true,
-        awaitCloseAnimation: true
+        awaitCloseAnimation: true,
+        disableFocus: true
     });
 });

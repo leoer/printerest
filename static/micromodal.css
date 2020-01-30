@@ -49,6 +49,7 @@
     color: #00449e;
     box-sizing: border-box;
     text-align: center;
+    word-break: break-all;
 }
 
 .modal__close {
@@ -174,4 +175,20 @@
 .micromodal-slide .modal__container,
 .micromodal-slide .modal__overlay {
     will-change: transform;
+}
+
+#modal-tms-error .modal__header {
+    padding: 5vw 5vw 0;
+    display: flex;
+}
+
+#modal-tms-error .modal__close {
+    position: static;
+    width: auto;
+    height: auto;
+    font-size: 1.5em;
+}
+
+#modal-tms-error .modal__container {
+    border-radius: 10vw;
 }

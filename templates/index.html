@@ -17,6 +17,7 @@
             <div id="progress"></div>
         </div>
         <div id="gallery">
+            <div id="galleryShadow"></div>
             {% for category in images.keys() %}
                 <ul id="{{ category }}">
                     <div class="category-title"><span>{{ category.replace("ae","ä").replace("oe","ö").replace("ue","ü").capitalize() }}</span></div>

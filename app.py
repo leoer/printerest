@@ -2,6 +2,7 @@ import os
 import psycopg2
 import time
 import json
+import html
 from flask import Flask, send_file, render_template, request, jsonify, make_response
 from flask_gzip import Gzip
 
@@ -38,13 +39,33 @@ def main():
 	# get all images
 	images = dict()
 	for subdirectory in os.listdir(os.path.join("static","images")):
+		images[subdirectory] = []
 		# list all files in the subdirectory and add them to the dictionary
-		images[subdirectory] = [x for x in os.listdir(os.path.join("static", "images", subdirectory))
-								# check if filename is an acceptable image format
-								# Fails if files without a "." are present in the directory TODO
-								if x.rsplit(".",1)[1].lower() in ["jpg", "jpeg", "png", "gif"]]
+		subdir_images = [x for x in os.listdir(os.path.join("static", "images", subdirectory))
+							# check if filename is an acceptable image format
+							# Fails if files without a "." are present in the directory TODO
+							if x.rsplit(".",1)[1].lower() in ["jpg", "jpeg", "png", "gif"]]
+		for subdir_image in subdir_images:
+			images[subdirectory].append({
+				"image": subdir_image,
+				"description": get_description(os.path.join("static", "images", subdirectory, subdir_image))
+			})
 
 	return render_template("index.html", images=images)
+
+def get_description(path):
+	desc_path = path.rsplit(".",1)[0] + ".txt"
+	if not os.path.exists(desc_path):
+		return None
+	with open(desc_path) as f:
+		lines = f.readlines()
+		if not lines:
+			# file is empty
+			return None
+		title = lines[0]
+		content = "".join(["<p>"+html.escape(x)+"</p>" for x in lines[2:]])
+
+	return {"title": title, "content": content}
 
 @app.route('/thank-you', methods=["GET", "POST"])
 def thank_you():

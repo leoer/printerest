@@ -3,6 +3,26 @@ body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
     overflow: hidden;
+    color:white;
+}
+h1, h2, h3, h4 { /*Headline Font Custom*/
+    color: white
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+h4 {
+    font-size: 1.15rem;
 }
 
 #gallery {
@@ -59,7 +79,7 @@ body {
     /* same padding-top as images */
     padding: 10px 2.5px 0;
 
-    color: yellow;
+    color: black;
     font-size: 20px;
 }
 
@@ -82,7 +102,7 @@ body {
 }
 
 #gallery .selected .main-image {
-    border-color: yellow;
+    border-color: white;
 }
 
 li .aspect-ratio-box {
@@ -144,7 +164,7 @@ li .aspect-ratio-box {
 
     font-size: 50px;
     line-height: 70px;
-    color: yellow;
+    color: white;
     text-align: center;
 
     position: fixed;
@@ -180,7 +200,7 @@ li .aspect-ratio-box {
     position: sticky;
     top: 25px;
     padding-top: 10px;
-    border-top: yellow 3px solid;
+    border-top: white 3px solid;
     width: calc(100vw - 60px);
     margin: 25px 20px 0;
     z-index: 10;
@@ -199,27 +219,27 @@ li .aspect-ratio-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: yellow;
+    color: white;
     content: " ";
-    width: 10px;
-    height: 10px;
-    margin-top: 10px;
+    width: 31x;
+    height: 31px;
+    /* margin-top: 10px; */
     transition: width 0.25s, height 0.25s, margin 0.25s, font-size 0.25s;
     border: 1px solid;
-    font-size: 0;
+    font-size: 30px;
 }
 
 .indicator span {
-    visibility: hidden;
-    opacity: 0;
+    /* visibility: hidden; */
+    /* opacity: 0; */
     transition: visibility 0.25s, opacity 0.25s;
 }
 
 .indicator.active {
     margin-top: 0;
-    width: 31px;
-    height: 31px;
-    font-size: 20px;
+    width: 41px;
+    height: 41px;
+    font-size: 40px;
 }
 
 .indicator.active span {

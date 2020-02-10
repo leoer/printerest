@@ -13,7 +13,7 @@ function select_image (e) {
         remove(selectedList, element.id);
 
         // disable button when last image has been deselected
-        if (selectedList.length < 1) {
+        if (selectedList.length < 3) {
             nextButton.classList.add("disabled");
         }
 
@@ -50,7 +50,7 @@ function select_image (e) {
 
 function next (e) {
     // assert that button is clickable
-    if (load("selectedList",[]).length < 1) {
+    if (load("selectedList",[]).length < 3) {
         return null;
     }
 
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // determine button status
-    if (selectedList.length > 0) {
+    if (selectedList.length > 2) {
         nextButton.classList.remove("disabled");
     }
 

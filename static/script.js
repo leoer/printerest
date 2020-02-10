@@ -1,4 +1,5 @@
 const MAX_SELECTED = 4;
+const MIN_SELECTED = 3;
 
 function select_image (e) {
     let selectedList = load("selectedList", []);
@@ -13,7 +14,7 @@ function select_image (e) {
         remove(selectedList, element.id);
 
         // disable button when last image has been deselected
-        if (selectedList.length < 1) {
+        if (selectedList.length < MIN_SELECTED) {
             nextButton.classList.add("disabled");
         }
 
@@ -30,7 +31,7 @@ function select_image (e) {
             selectedList.push(element.id);
 
             // enable button if it isn't
-            if (nextButton.classList.contains("disabled")) {
+            if (nextButton.classList.contains("disabled") && selectedList.length >= MIN_SELECTED) {
                 nextButton.classList.remove("disabled");
             }
 
@@ -129,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // determine button status
-    if (selectedList.length > 0) {
+    if (selectedList.length >= MIN_SELECTED) {
         nextButton.classList.remove("disabled");
     }
 

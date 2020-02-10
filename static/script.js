@@ -1,4 +1,4 @@
-const MAX_SELECTED = 4;
+const MAX_SELECTED = 3;
 
 function select_image (e) {
     let selectedList = load("selectedList", []);

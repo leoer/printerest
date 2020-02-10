@@ -102,7 +102,7 @@ function create_indicator(n) {
 function update_progress(n, o) {
     let old = n-o;
 //    if (old !== 0 && old <= MAX_SELECTED) {
-    if (old === MAX_SELECTED) {
+    if (old !== MAX_SELECTED) {
         document.querySelector("#progress-indicator-"+old).classList.remove("active");
     }
     if (n !== 0 && n <= MAX_SELECTED) {

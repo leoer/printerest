@@ -4,10 +4,10 @@ import time
 import json
 import html
 from flask import Flask, send_file, render_template, request, jsonify, make_response
-from flask_gzip import Gzip
+# from flask_gzip import Gzip
 
 app = Flask(__name__)
-gzip = Gzip(app)
+# gzip = Gzip(app)
 
 # connect to database
 if 'DATABASE_URL' in os.environ:

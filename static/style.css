@@ -30,34 +30,28 @@ h4 {
     top: 0;
     bottom: 0;
     /* start showing images below the progress bar and allow scrolling last image further up  */
-    padding: 75px 0;
+    padding: 75px 0 0;
     overflow: auto;
     /* hide scrollbars in IE */
     -ms-overflow-style: none;
     /* hide scrollbars in Firefox */
     overflow: -moz-scrollbars-none;
     scrollbar-width: none;
-
-    /* background */
-    background-repeat: repeat-y;
-    background-size: inherit;
-    background-attachment: local;
-    background-position: center;
-    /* background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg); */
 }
 #galleryShadow {
     position: sticky;
-    background: #444444;
-    top: calc(7px - 100%);
-    margin: -100px 0px 100px;
-    padding: 100px calc(50px + 40px) 100px 50px;
+    background: #222222;
+    top: -100%;
+    margin: -100px 0px 0px;
+    padding: 100px calc(50px + 40px) 50px 50px;
     left: -10vw;
     right: -10vw;
 
     overflow-y: hidden;
-    -webkit-box-shadow: 0px 25px 50px 50px #444444;
-    -moz-box-shadow: 0px 25px 50px 50px #444444;
-    box-shadow: 0px 100px 50px 50px #444444;
+
+    -webkit-box-shadow: 0px 25px 50px 50px #222222;
+    -moz-box-shadow: 0px 25px 50px 50px #222222;
+    box-shadow: 0px 25px 50px 50px #222222;
     z-index: 5;
 }
 
@@ -69,7 +63,41 @@ h4 {
 #gallery ul {
     list-style: none;
     margin: 0;
-    padding: 0 0 0 5px;
+    padding: 100px 0 0 5px;
+
+    /* background */
+    background-repeat: repeat-y;
+    background-size: inherit;
+    background-attachment: local;
+    background-position: center;
+}
+
+#gallery ul:last-child {
+    padding-bottom: 75px;
+}
+
+#gallery ul#freizeit {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+}
+
+#gallery ul#gruenanlage {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+}
+
+#gallery ul#wasser {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+}
+
+#gallery ul#bildung {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+}
+
+#gallery ul#einkaufen {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+}
+
+#gallery ul#parks {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
 }
 
 #gallery ul .category-title {
@@ -83,7 +111,7 @@ h4 {
     /* same padding-top as images */
     padding: 10px 2.5px 0;
 
-    color: black;
+    color: white;
     font-size: 20px;
 }
 
@@ -98,7 +126,8 @@ h4 {
 
 #gallery .main-image {
     /* border-radius: 50%; */
-    border-width: 1vw;
+
+    border-width: 2vw;
     border-style: solid;
     border-color: transparent;
     cursor: pointer;
@@ -218,8 +247,8 @@ li .aspect-ratio-box {
 
 .indicator {
     /* border-radius: 50%; */
-    border: white 1px solid;
-    background: #444444;
+    /*border: black 1px solid;*/
+    background: #222222;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,13 +280,19 @@ li .aspect-ratio-box {
     opacity: 1;
 }
 
+.indicator.active:last-child {
+    background-image: linear-gradient(45deg, transparent 40%, white 40%, white 50%, transparent 50%, transparent 90%, white 90%, white 100%);
+    background-size: 5.00px 5.00px;
+}
+
 #scroll {
     position: absolute;
     top: 0;
     right: 0;
     bottom: -10vh;
-    /* width: 25px; */
-    background: black;
+
+    width: 25px;
+    background: #222222;
     transform: translate3d(0,0,0);
     z-index: 10;
 }
@@ -265,5 +300,7 @@ li .aspect-ratio-box {
 #heading {
     text-align: center;
     color: white;
-    word-break: break-all;
+    word-break: break-word;
+    max-width: 100%;
+    overflow-y: hidden;
 }

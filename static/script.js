@@ -152,9 +152,5 @@ document.addEventListener("DOMContentLoaded", () => {
         awaitCloseAnimation: true,
         disableFocus: true
     });
-
-    // set proper shadow height
-    let heading_height = document.querySelector("#heading").offsetHeight;
-    document.querySelector("#galleryShadow").style.top = "calc("+heading_height+"px - 100%)";
 });
 

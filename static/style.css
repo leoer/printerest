@@ -3,10 +3,10 @@ body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
     overflow: hidden;
-    color:white;
+    color:lightgrey;
 }
 h1, h2, h3, h4 { /*Headline Font Custom*/
-    color: white
+    color: black
 }
 
 h1 {
@@ -27,7 +27,7 @@ h4 {
 
 #gallery {
     position: absolute;
-    top: 0;
+    top: 50px;
     bottom: 0;
     /* start showing images below the progress bar and allow scrolling last image further up  */
     padding: 75px 0 75px 5px;
@@ -252,7 +252,7 @@ li .aspect-ratio-box {
     top: 0;
     right: 0;
     bottom: -10vh;
-    width: 25px;
+    /* width: 25px; */
     background: black;
     transform: translate3d(0,0,0);
     z-index: 10;

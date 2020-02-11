@@ -56,27 +56,27 @@ body {
 }
 
 #gallery ul#mobilitaet {
-    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+    background-image: "background/mobilitaet.png";
 }
 
 #gallery ul#natur {
-    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+    background-image: "background/natur.png";
 }
 
 #gallery ul#unterhaltung {
-    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+    background-image: "background/unterhaltung.png";
 }
 
 #gallery ul#inklusion {
-    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+    background-image: "background/inklusion.png";
 }
 
 #gallery ul#sicherheit {
-    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+    background-image: "background/sicherheit.png";
 }
 
 #gallery ul#erholung {
-    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+    background-image: "background/erholung.png";
 }
 
 #gallery ul .category-title {

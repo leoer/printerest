@@ -92,6 +92,23 @@ body {
     border-color: white;
 }
 
+#gallery .shade {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    pointer-events: none;
+}
+
+#gallery .selected .shade {
+    background: white;
+    opacity: 0.5;
+}
+
 li .aspect-ratio-box {
     /* gallery padding: 10px; scroll indicator: 30px  */
     width: calc(calc(100vw - 40px) / 2);

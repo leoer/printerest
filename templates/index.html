@@ -32,6 +32,7 @@
                         {% set img_url = '/static/images/' + category + '/' + img %}
                         <li id="{{ img_id }}">
                             <div class="aspect-ratio-box">
+                                <div class="shade"></div>
                                 <img class="main-image" src="{{ img_url }}" alt="{{ img_id }}" loading="lazy">
                                 {% if image["description"] %}
                                     <div class="info-button-container"

@@ -30,7 +30,7 @@ body {
     background: #444444;
     top: -100%;
     margin: -100px 0px 100px;
-    padding: 100px calc(50px + 40px) 100px 50px;
+    padding: 100px calc(50px + 40px) 50px 50px;
     left: -10vw;
     right: -10vw;
     overflow-y: hidden;

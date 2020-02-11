@@ -24,7 +24,7 @@
             </div>
             </div>
             {% for category in images.keys() %}
-                <ul id="{{ category }}">
+                <ul id="{{ category }}" style="background-image: url(/static/background/{{ category }}.png)">
                     <div class="category-title"><span>{{ category.replace("ae","ä").replace("oe","ö").replace("ue","ü").capitalize() }}</span></div>
                     {% for image in images[category] %}
                         {% set img = image["image"] %}

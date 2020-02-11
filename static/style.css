@@ -55,30 +55,6 @@ body {
     padding-bottom: 75px;
 }
 
-#gallery ul#mobilitaet {
-    background-image: url(background/mobilitaet.png);
-}
-
-#gallery ul#natur {
-    background-image: url(background/natur.png);
-}
-
-#gallery ul#unterhaltung {
-    background-image: url(background/unterhaltung.png);
-}
-
-#gallery ul#inklusion {
-    background-image: url(background/inklusion.png);
-}
-
-#gallery ul#sicherheit {
-    background-image: url(background/sicherheit.png);
-}
-
-#gallery ul#erholung {
-    background-image: url(background/erholung.png);
-}
-
 #gallery ul .category-title {
     position: sticky;
     top: 0;

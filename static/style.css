@@ -56,27 +56,27 @@ body {
 }
 
 #gallery ul#mobilitaet {
-    background-image: "background/mobilitaet.png";
+    background-image: url(background/mobilitaet.png);
 }
 
 #gallery ul#natur {
-    background-image: "background/natur.png";
+    background-image: url(background/natur.png);
 }
 
 #gallery ul#unterhaltung {
-    background-image: "background/unterhaltung.png";
+    background-image: url(background/unterhaltung.png);
 }
 
 #gallery ul#inklusion {
-    background-image: "background/inklusion.png";
+    background-image: url(background/inklusion.png);
 }
 
 #gallery ul#sicherheit {
-    background-image: "background/sicherheit.png";
+    background-image: url(background/sicherheit.png);
 }
 
 #gallery ul#erholung {
-    background-image: "background/erholung.png";
+    background-image: url(background/erholung.png);
 }
 
 #gallery ul .category-title {

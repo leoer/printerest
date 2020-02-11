@@ -244,5 +244,7 @@ li .aspect-ratio-box {
 #heading {
     text-align: center;
     color: white;
-    word-break: break-all;
+    word-break: break-word;
+    max-width: 100%;
+    overflow-y: hidden;
 }

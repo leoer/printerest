@@ -27,7 +27,7 @@ h4 {
 
 #gallery {
     position: absolute;
-    top: 50px;
+    top: 0;
     bottom: 0;
     /* start showing images below the progress bar and allow scrolling last image further up  */
     padding: 75px 0 75px 5px;

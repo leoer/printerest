@@ -10,33 +10,26 @@ body {
     top: 0;
     bottom: 0;
     /* start showing images below the progress bar and allow scrolling last image further up  */
-    padding: 75px 0;
+    padding: 75px 0 0;
     overflow: auto;
     /* hide scrollbars in IE */
     -ms-overflow-style: none;
     /* hide scrollbars in Firefox */
     overflow: -moz-scrollbars-none;
     scrollbar-width: none;
-
-    /* background */
-    background-repeat: repeat-y;
-    background-size: inherit;
-    background-attachment: local;
-    background-position: center;
-    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
 }
 #galleryShadow {
     position: sticky;
-    background: #444444;
+    background: #222222;
     top: -100%;
-    margin: -100px 0px 100px;
+    margin: -100px 0px 0px;
     padding: 100px calc(50px + 40px) 50px 50px;
     left: -10vw;
     right: -10vw;
     overflow-y: hidden;
-    -webkit-box-shadow: 0px 25px 50px 50px #444444;
-    -moz-box-shadow: 0px 25px 50px 50px #444444;
-    box-shadow: 0px 25px 50px 50px #444444;
+    -webkit-box-shadow: 0px 25px 50px 50px #222222;
+    -moz-box-shadow: 0px 25px 50px 50px #222222;
+    box-shadow: 0px 25px 50px 50px #222222;
     z-index: 5;
 }
 
@@ -48,7 +41,41 @@ body {
 #gallery ul {
     list-style: none;
     margin: 0;
-    padding: 0 0 0 5px;
+    padding: 100px 0 0 5px;
+
+    /* background */
+    background-repeat: repeat-y;
+    background-size: inherit;
+    background-attachment: local;
+    background-position: center;
+}
+
+#gallery ul:last-child {
+    padding-bottom: 75px;
+}
+
+#gallery ul#freizeit {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+}
+
+#gallery ul#gruenanlage {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+}
+
+#gallery ul#wasser {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+}
+
+#gallery ul#bildung {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+}
+
+#gallery ul#einkaufen {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
+}
+
+#gallery ul#parks {
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
 }
 
 #gallery ul .category-title {
@@ -198,7 +225,7 @@ li .aspect-ratio-box {
 .indicator {
     /* border-radius: 50%; */
     /*border: black 1px solid;*/
-    background: #444444;
+    background: #222222;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -241,7 +268,7 @@ li .aspect-ratio-box {
     right: 0;
     bottom: -10vh;
     width: 25px;
-    background: black;
+    background: #222222;
     transform: translate3d(0,0,0);
     z-index: 10;
 }

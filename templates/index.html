@@ -10,14 +10,18 @@
         <link rel="stylesheet" href="/static/micromodal.css" />
         <script type="text/javascript" src="/static/script.js"></script>
         <script type="text/javascript" src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
-        <title>Printerest</title>
+        <title>Vota-Berlin</title>
     </head>
     <body>
-        <h1> Was soll hier stehen?</h1> <br>
-		<h2> Wähle drei Wünsche aus </h2>
+
         <div id="progress-wrapper">
             <div id="progress"></div>
         </div>
+        <div id="text">
+            <h1> Was soll hier stehen?</h1> <br>
+            <h2> Wähle drei Wünsche aus </h2>
+        </div>
+       
         <div id="gallery">
             <div id="galleryShadow"></div>
             {% for category in images.keys() %}

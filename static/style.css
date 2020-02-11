@@ -10,7 +10,7 @@ body {
     top: 0;
     bottom: 0;
     /* start showing images below the progress bar and allow scrolling last image further up  */
-    padding: 75px 0 75px 5px;
+    padding: 75px 0;
     overflow: auto;
     /* hide scrollbars in IE */
     -ms-overflow-style: none;
@@ -26,14 +26,17 @@ body {
     background-image: url(https://images-na.ssl-images-amazon.com/images/I/A1AQsQCDBML._SL1500_.jpg);
 }
 #galleryShadow {
-    position: fixed;
-    top: -200px;
-    height: 200px;
+    position: sticky;
+    background: #444444;
+    top: calc(7px - 100%);
+    margin: -100px 0px 100px;
+    padding: 100px calc(50px + 40px) 100px 50px;
     left: -10vw;
     right: -10vw;
-    -webkit-box-shadow: 0px 75px 50px 0 #444444;
-    -moz-box-shadow: 0px 75px 50px 0 #444444;
-    box-shadow: 0px 75px 50px 0 #444444;
+    overflow-y: hidden;
+    -webkit-box-shadow: 0px 25px 50px 50px #444444;
+    -moz-box-shadow: 0px 25px 50px 50px #444444;
+    box-shadow: 0px 25px 50px 50px #444444;
     z-index: 5;
 }
 
@@ -45,14 +48,14 @@ body {
 #gallery ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 5px;
 }
 
 #gallery ul .category-title {
     position: sticky;
     top: 0;
     float: right;
-    width: 20px;
+    width: 22px;
     z-index: 12;
     /* like dimensions for images but without the subtracted padding */
     height: calc(calc(100vw - 40px) / 2);
@@ -236,4 +239,10 @@ li .aspect-ratio-box {
     background: black;
     transform: translate3d(0,0,0);
     z-index: 10;
+}
+
+#heading {
+    text-align: center;
+    color: white;
+    word-break: break-all;
 }
